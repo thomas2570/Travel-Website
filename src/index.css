@@ -4,43 +4,44 @@
 
 @layer base {
   body {
-    @apply font-sans text-gray-900 dark:text-gray-100 bg-white dark:bg-gray-950 transition-colors duration-300;
+    @apply font-sans text-brand-charcoal bg-brand-beige selection:bg-brand-orange/30;
   }
   
-  h1, h2, h3, h4 {
-    @apply tracking-tight;
+  h1, h2, h3 {
+    @apply font-display tracking-tight;
   }
 }
 
 @layer components {
-  .glass {
-    @apply bg-white/70 dark:bg-gray-900/70 backdrop-blur-xl border border-white/40 dark:border-gray-800/20;
-    box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  }
-  
-  .btn-primary {
-    @apply px-8 py-4 bg-primary-600 hover:bg-primary-700 text-white rounded-2xl font-bold transition-all transform hover:scale-[1.02] active:scale-95 shadow-lg shadow-primary-900/10;
+  .btn-luxury {
+    @apply px-8 py-4 bg-brand-charcoal text-brand-beige font-medium tracking-widest uppercase text-xs transition-all hover:bg-brand-orange hover:shadow-luxury transform hover:-translate-y-1 active:translate-y-0;
   }
 
-  .btn-secondary {
-    @apply px-8 py-4 glass hover:bg-white/90 dark:hover:bg-gray-800/90 rounded-2xl font-bold transition-all transform hover:scale-[1.02] active:scale-95;
+  .btn-outline {
+    @apply px-8 py-4 border border-brand-charcoal/20 text-brand-charcoal font-medium tracking-widest uppercase text-xs transition-all hover:border-brand-orange hover:text-brand-orange;
+  }
+
+  .glass-luxury {
+    @apply bg-white/10 backdrop-blur-md border border-white/20 shadow-luxury;
   }
 }
 
-/* Realistic Scrollbar */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  @apply bg-gray-50 dark:bg-gray-950;
+  @apply bg-brand-beige;
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply bg-gray-300 dark:bg-gray-800 hover:bg-gray-400 dark:hover:bg-gray-700 border-4 border-solid border-gray-50 dark:border-gray-950 rounded-full;
+  @apply bg-brand-charcoal/20 hover:bg-brand-charcoal/40 rounded-full;
 }
 
-/* Smooth selection */
-::selection {
-  @apply bg-primary-200/50 dark:bg-primary-800/50;
+.text-reveal {
+  @apply overflow-hidden;
+}
+
+.text-reveal span {
+  @apply inline-block;
 }

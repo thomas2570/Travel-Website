@@ -1,122 +1,45 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Sun, Moon, MapPin, Search } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Search, Globe, User } from 'lucide-react';
 
-const Navbar = ({ darkMode, setDarkMode, onBookClick }) => {
+const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
+    const handleScroll = () => setIsScrolled(window.scrollY > 50);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navLinks = [
-    { name: 'Destinations', href: '#destinations' },
-    { name: 'Packages', href: '#packages' },
-    { name: 'About', href: '#about' },
-    { name: 'Contact', href: '#contact' },
-  ];
-
   return (
-    <nav
-      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        isScrolled ? 'py-4 glass' : 'py-6 bg-transparent'
-      }`}
-    >
-      <div className="container mx-auto px-6 flex justify-between items-center">
-        <motion.div 
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-          className="flex items-center space-x-2"
-        >
-          <div className="w-10 h-10 bg-primary-600 rounded-xl flex items-center justify-center text-white font-bold text-xl shadow-lg shadow-primary-500/30">
-            T
-          </div>
-          <span className={`text-2xl font-bold tracking-tight ${isScrolled || darkMode ? 'text-gray-900 dark:text-white' : 'text-white'}`}>
-            Travel<span className="text-primary-500">India</span>
-          </span>
-        </motion.div>
-
-        {/* Desktop Menu */}
-        <div className="hidden md:flex items-center space-x-8">
-          {navLinks.map((link, index) => (
-            <motion.a
-              key={link.name}
-              href={link.href}
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1 }}
-              className={`font-medium hover:text-primary-500 transition-colors ${
-                isScrolled || darkMode ? 'text-gray-700 dark:text-gray-300' : 'text-white/90 hover:text-white'
-              }`}
-            >
-              {link.name}
-            </motion.a>
-          ))}
-          
-          <div className="flex items-center space-x-4 ml-4">
-            <button
-              onClick={() => setDarkMode(!darkMode)}
-              className={`p-2 rounded-full transition-all ${
-                isScrolled || darkMode ? 'bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-yellow-400' : 'bg-white/10 text-white'
-              }`}
-            >
-              {darkMode ? <Sun size={20} /> : <Moon size={20} />}
-            </button>
-            <button onClick={onBookClick} className="btn-primary py-2 px-6 text-sm">
-              Book Now
-            </button>
+    <nav className={`fixed top-0 w-full z-50 transition-all duration-700 ${isScrolled ? 'py-4 bg-brand-beige/80 backdrop-blur-lg border-b border-brand-charcoal/5' : 'py-8 bg-transparent'}`}>
+      <div className="container mx-auto px-8 flex justify-between items-center">
+        <div className="flex items-center space-x-12">
+          <a href="/" className="text-2xl font-display font-bold tracking-tighter text-brand-charcoal">
+            ADVENT<span className="text-brand-orange">URE</span>
+          </a>
+          <div className="hidden md:flex space-x-8">
+            {['Escapes', 'Journeys', 'Our Story', 'Journal'].map((item) => (
+              <a key={item} href="#" className="text-xs uppercase tracking-widest font-medium text-brand-charcoal/60 hover:text-brand-orange transition-colors">
+                {item}
+              </a>
+            ))}
           </div>
         </div>
 
-        {/* Mobile Toggle */}
-        <div className="md:hidden flex items-center space-x-4">
-          <button
-            onClick={() => setDarkMode(!darkMode)}
-            className={`p-2 rounded-full ${isScrolled || darkMode ? 'text-gray-900 dark:text-yellow-400' : 'text-white'}`}
-          >
-            {darkMode ? <Sun size={20} /> : <Moon size={20} />}
+        <div className="flex items-center space-x-6">
+          <button className="text-brand-charcoal/80 hover:text-brand-orange transition-colors">
+            <Search size={20} strokeWidth={1.5} />
           </button>
-          <button
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className={`${isScrolled || darkMode ? 'text-gray-900 dark:text-white' : 'text-white'}`}
-          >
-            {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+          <button className="text-brand-charcoal/80 hover:text-brand-orange transition-colors">
+            <Globe size={20} strokeWidth={1.5} />
+          </button>
+          <div className="h-4 w-px bg-brand-charcoal/10 mx-2" />
+          <button className="hidden sm:block text-xs uppercase tracking-widest font-bold text-brand-charcoal">
+            Member
           </button>
         </div>
       </div>
-
-      {/* Mobile Menu */}
-      <AnimatePresence>
-        {isMobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            className="md:hidden glass border-t dark:border-gray-800"
-          >
-            <div className="px-6 py-8 flex flex-col space-y-6">
-              {navLinks.map((link) => (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="text-xl font-semibold text-gray-800 dark:text-gray-200"
-                >
-                  {link.name}
-                </a>
-              ))}
-              <button onClick={onBookClick} className="btn-primary w-full py-4 text-lg">
-                Book Now
-              </button>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </nav>
   );
 };
