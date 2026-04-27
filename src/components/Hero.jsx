@@ -39,7 +39,7 @@ const Hero = () => {
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="max-w-4xl mx-auto glass p-2 md:p-3 rounded-2xl md:rounded-[32px] shadow-realistic"
+          className="max-w-4xl mx-auto glass p-2 md:p-3 rounded-2xl md:rounded-[32px] shadow-2xl"
         >
           <div className="flex flex-col md:flex-row items-center gap-2">
             <div className="flex-1 w-full flex items-center gap-3 px-6 py-4 md:border-r border-gray-200/50 dark:border-gray-700/50">
