@@ -37,11 +37,11 @@ const PackageSection = ({ onBookClick }) => {
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            className="text-4xl md:text-5xl font-bold mb-4 dark:text-white"
+            className="text-4xl md:text-6xl font-serif font-bold mb-4 dark:text-white"
           >
-            Curated <span className="text-primary-600">Travel Packages</span>
+            Curated <span className="text-accent-600 italic tracking-tight">Travel Packages</span>
           </motion.h2>
-          <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+          <p className="text-gray-500 dark:text-gray-400 max-w-2xl mx-auto font-light">
             Choose from our most popular travel packages designed for every kind of traveler.
           </p>
         </div>

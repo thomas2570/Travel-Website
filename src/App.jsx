@@ -94,10 +94,10 @@ function App() {
                 <motion.h2 
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  className="text-4xl md:text-5xl font-bold dark:text-white"
+                  className="text-4xl md:text-6xl font-serif font-bold dark:text-white"
                 >
                   Pick Your Next <br />
-                  <span className="text-gray-400 dark:text-gray-600">Adventure</span>
+                  <span className="text-primary-600 italic">Adventure</span>
                 </motion.h2>
               </div>
               <p className="text-gray-500 dark:text-gray-400 max-w-md">
@@ -127,22 +127,23 @@ function App() {
         {/* Call to Action */}
         <section className="py-24">
           <div className="container mx-auto px-6">
-            <div className="relative rounded-[50px] overflow-hidden bg-primary-600 p-12 md:p-24 text-center">
-              <div className="absolute inset-0 z-0 opacity-20">
+            <div className="relative rounded-[60px] overflow-hidden bg-primary-950 p-12 md:p-24 text-center border border-white/5 shadow-premium">
+              <div className="absolute inset-0 z-0 opacity-10">
                  <img src="/images/bg.png" alt="" className="w-full h-full object-cover" />
               </div>
               <div className="relative z-10">
-                <h2 className="text-4xl md:text-6xl font-bold text-white mb-8">
-                  Ready to Start Your <br /> Journey?
+                <h2 className="text-4xl md:text-7xl font-serif font-bold text-white mb-8">
+                  Ready to Start Your <br />
+                  <span className="text-accent-500 italic">Journey?</span>
                 </h2>
-                <p className="text-white/80 text-xl mb-12 max-w-2xl mx-auto font-medium">
+                <p className="text-white/60 text-xl mb-12 max-w-2xl mx-auto font-light">
                   Join thousands of travelers who have found their dream vacation with TravelIndia. Book your trip today!
                 </p>
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-                  <button className="px-10 py-5 bg-white text-primary-600 rounded-full font-bold text-lg hover:scale-105 transition-transform active:scale-95 shadow-2xl">
+                  <button className="px-10 py-5 bg-accent-500 text-primary-950 rounded-2xl font-bold text-lg hover:scale-105 transition-transform active:scale-95 shadow-xl shadow-accent-500/20">
                     Get Started Now
                   </button>
-                  <button className="px-10 py-5 border-2 border-white/30 text-white rounded-full font-bold text-lg hover:bg-white/10 transition-all active:scale-95">
+                  <button className="px-10 py-5 border border-white/10 text-white rounded-2xl font-bold text-lg hover:bg-white/5 transition-all active:scale-95">
                     Contact Support
                   </button>
                 </div>

@@ -22,14 +22,14 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <span className="inline-block px-4 py-1.5 mb-6 text-sm font-semibold tracking-wider text-white uppercase bg-primary-600/30 backdrop-blur-sm border border-white/20 rounded-full">
+          <span className="inline-block px-4 py-1.5 mb-6 text-sm font-semibold tracking-wider text-white uppercase bg-white/10 backdrop-blur-md border border-white/20 rounded-full">
             Premium Travel Experience
           </span>
-          <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
+          <h1 className="text-5xl md:text-8xl font-serif font-bold text-white mb-6 leading-tight">
             Explore the World <br />
-            <span className="text-primary-400">With Us</span>
+            <span className="text-accent-400 italic">With Us</span>
           </h1>
-          <p className="text-lg md:text-xl text-white/90 mb-12 max-w-2xl mx-auto font-medium">
+          <p className="text-lg md:text-xl text-white/80 mb-12 max-w-2xl mx-auto font-light tracking-wide">
             Discover breathtaking destinations, unique cultures, and unforgettable adventures. Your journey starts here.
           </p>
         </motion.div>
@@ -39,51 +39,48 @@ const Hero = () => {
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="max-w-4xl mx-auto glass p-2 md:p-4 rounded-2xl md:rounded-full shadow-2xl"
+          className="max-w-4xl mx-auto glass p-2 md:p-3 rounded-2xl md:rounded-[32px] shadow-realistic"
         >
-          <div className="flex flex-col md:flex-row items-center gap-4">
-            <div className="flex-1 w-full flex items-center gap-3 px-4 py-3 md:border-r border-gray-200 dark:border-gray-700">
-              <MapPin className="text-primary-500" size={24} />
+          <div className="flex flex-col md:flex-row items-center gap-2">
+            <div className="flex-1 w-full flex items-center gap-3 px-6 py-4 md:border-r border-gray-200/50 dark:border-gray-700/50">
+              <MapPin className="text-accent-500" size={22} />
               <div className="text-left">
-                <p className="text-xs text-gray-500 dark:text-gray-400 font-bold uppercase">Location</p>
+                <p className="text-[10px] text-gray-500 dark:text-gray-400 font-bold uppercase tracking-widest">Location</p>
                 <input
                   type="text"
-                  placeholder="Where are you going?"
-                  className="bg-transparent border-none outline-none w-full text-gray-800 dark:text-white font-semibold placeholder:text-gray-400"
+                  placeholder="Where to?"
+                  className="bg-transparent border-none outline-none w-full text-gray-800 dark:text-white font-medium placeholder:text-gray-400/60"
                 />
               </div>
             </div>
             
-            <div className="flex-1 w-full flex items-center gap-3 px-4 py-3 md:border-r border-gray-200 dark:border-gray-700">
-              <Calendar className="text-primary-500" size={24} />
+            <div className="flex-1 w-full flex items-center gap-3 px-6 py-4 md:border-r border-gray-200/50 dark:border-gray-700/50">
+              <Calendar className="text-accent-500" size={22} />
               <div className="text-left">
-                <p className="text-xs text-gray-500 dark:text-gray-400 font-bold uppercase">Date</p>
+                <p className="text-[10px] text-gray-500 dark:text-gray-400 font-bold uppercase tracking-widest">Date</p>
                 <input
                   type="text"
-                  placeholder="When?"
-                  className="bg-transparent border-none outline-none w-full text-gray-800 dark:text-white font-semibold placeholder:text-gray-400"
+                  placeholder="Add dates"
+                  className="bg-transparent border-none outline-none w-full text-gray-800 dark:text-white font-medium placeholder:text-gray-400/60"
                 />
               </div>
             </div>
 
-            <div className="flex-1 w-full flex items-center gap-3 px-4 py-3">
-              <Users className="text-primary-500" size={24} />
+            <div className="flex-1 w-full flex items-center gap-3 px-6 py-4">
+              <Users className="text-accent-500" size={22} />
               <div className="text-left">
-                <p className="text-xs text-gray-500 dark:text-gray-400 font-bold uppercase">Guests</p>
+                <p className="text-[10px] text-gray-500 dark:text-gray-400 font-bold uppercase tracking-widest">Guests</p>
                 <input
                   type="text"
-                  placeholder="How many?"
-                  className="bg-transparent border-none outline-none w-full text-gray-800 dark:text-white font-semibold placeholder:text-gray-400"
+                  placeholder="Add guests"
+                  className="bg-transparent border-none outline-none w-full text-gray-800 dark:text-white font-medium placeholder:text-gray-400/60"
                 />
               </div>
             </div>
 
-            <button className="w-full md:w-auto bg-primary-600 hover:bg-primary-700 text-white p-4 rounded-xl md:rounded-full flex items-center justify-center gap-2 transition-all font-bold group">
-              <Search size={24} />
-              <span className="md:hidden">Search</span>
-              <div className="hidden md:flex w-0 group-hover:w-16 overflow-hidden transition-all duration-300 items-center">
-                Search
-              </div>
+            <button className="w-full md:w-auto bg-primary-600 hover:bg-primary-700 text-white px-8 py-4 rounded-xl md:rounded-[24px] flex items-center justify-center gap-3 transition-all font-bold shadow-lg shadow-primary-900/20 group">
+              <Search size={20} />
+              <span>Search</span>
             </button>
           </div>
         </motion.div>
